@@ -1,4 +1,4 @@
-package kg.nurzhamal.android3_hm2.local;
+package kg.nurzhamal.android3_hm2.remote;
 
 public class EndPoints {
     public static final String GET_FILMS = "films";

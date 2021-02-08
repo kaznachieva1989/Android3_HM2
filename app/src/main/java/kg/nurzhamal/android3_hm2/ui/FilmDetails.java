@@ -56,9 +56,9 @@ public class FilmDetails extends Fragment {
         mViewModel.filmMutableLiveData.observe(getViewLifecycleOwner(), new Observer<Film>() {
             @Override
             public void onChanged(Film film) {
-                binding.titleOneFilm.setText("Title " + film.getTitle());
-                binding.description.setText("Description" + film.getDescription());
-                binding.director.setText("Director " + film.getDirector());
+                binding.titleOneFilm.setText("Title: " + film.getTitle());
+                binding.description.setText("Description: " + film.getDescription());
+                binding.director.setText("Director: " + film.getDirector());
             }
         });
     }

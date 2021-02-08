@@ -1,4 +1,4 @@
-package kg.nurzhamal.android3_hm2.local;
+package kg.nurzhamal.android3_hm2.remote;
 
 import java.util.List;
 

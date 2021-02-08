@@ -40,8 +40,8 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
         return filmList.size();
     }
 
-    public Film getItem(int position) {
-        return filmList.get(position);
+    public Film getItem(int pos) {
+        return filmList.get(pos);
     }
 
     public class FilmViewHolder extends RecyclerView.ViewHolder {
@@ -55,7 +55,13 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
             binding.titleFilm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.onTitleClick(getAdapterPosition());
+                    listener.onTitleClick(filmList.get(getAdapterPosition()));
+                }
+            });
+            binding.btnSave.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onSaveClick(getAdapterPosition());
                 }
             });
         }
@@ -66,6 +72,8 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
     }
 
     public interface Listener {
-        void onTitleClick(int position);
+        void onTitleClick(Film film);
+
+        void onSaveClick(int pos);
     }
 }

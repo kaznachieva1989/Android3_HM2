@@ -1,13 +1,20 @@
 package kg.nurzhamal.android3_hm2.data.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
+@Entity(tableName = "film_table")
 public class Film {
     @SerializedName("id")
     @Expose
+    @PrimaryKey
+    @NonNull
     private String id;
     @SerializedName("title")
     @Expose
@@ -29,21 +36,26 @@ public class Film {
     private String rtScore;
     @SerializedName("people")
     @Expose
+    @TypeConverters({ListConverter.class})
     private List<String> people = null;
     @SerializedName("species")
     @Expose
+    @TypeConverters({ListConverter.class})
     private List<String> species = null;
     @SerializedName("locations")
     @Expose
+    @TypeConverters({ListConverter.class})
     private List<String> locations = null;
     @SerializedName("vehicles")
     @Expose
+    @TypeConverters({ListConverter.class})
     private List<String> vehicles = null;
     @SerializedName("url")
     @Expose
     private String url;
     @SerializedName("length")
     @Expose
+    @TypeConverters({ObjectConverter.class})
     private Object length;
 
     public String getId() {

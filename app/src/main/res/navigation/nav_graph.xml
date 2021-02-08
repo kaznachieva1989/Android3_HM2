@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_filmList_to_filmDetails"
             app:destination="@id/filmDetails" />
+        <action
+            android:id="@+id/action_filmList_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/filmDetails"
@@ -21,6 +24,15 @@
         tools:layout="@layout/film_details_fragment">
         <action
             android:id="@+id/action_filmDetails_to_filmList"
+            app:destination="@id/filmList" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="kg.nurzhamal.android3_hm2.ui.MainActivity$FavoriteFragment"
+        android:label="favorite_fragment"
+        tools:layout="@layout/favorite_fragment" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_filmList2"
             app:destination="@id/filmList" />
     </fragment>
 </navigation>

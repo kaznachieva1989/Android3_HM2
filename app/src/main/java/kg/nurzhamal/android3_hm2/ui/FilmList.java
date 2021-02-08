@@ -17,6 +17,7 @@ import androidx.navigation.Navigation;
 import java.util.ArrayList;
 import java.util.List;
 
+import kg.nurzhamal.android3_hm2.App;
 import kg.nurzhamal.android3_hm2.R;
 import kg.nurzhamal.android3_hm2.adapter.FilmAdapter;
 import kg.nurzhamal.android3_hm2.data.model.Film;
@@ -48,6 +49,14 @@ public class FilmList extends Fragment implements FilmAdapter.Listener {
 
         filmAdapter = new FilmAdapter(filmList, this);
         binding.recyclerView.setAdapter(filmAdapter);
+
+        binding.btnFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+                navController.navigate(R.id.action_filmList_to_favoriteFragment);
+            }
+        });
     }
 
     @Override
@@ -68,11 +77,16 @@ public class FilmList extends Fragment implements FilmAdapter.Listener {
     }
 
     @Override
-    public void onTitleClick(int position) {
+    public void onTitleClick(Film film) {
         Log.d("tag", "onClick");
         Bundle b = new Bundle();
-        b.putString("filmId", filmAdapter.getItem(position).getId());
+        b.putString("filmId", film.getId());
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         navController.navigate(R.id.action_filmList_to_filmDetails, b);
+    }
+
+    @Override
+    public void onSaveClick(int pos) {
+        App.database.filmDao().insertFilm(filmAdapter.getItem(pos));
     }
 }

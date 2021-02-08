@@ -1,5 +1,6 @@
-package kg.nurzhamal.android3_hm2.local;
+package kg.nurzhamal.android3_hm2.remote;
 
+import kg.nurzhamal.android3_hm2.remote.GhibliApi;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
