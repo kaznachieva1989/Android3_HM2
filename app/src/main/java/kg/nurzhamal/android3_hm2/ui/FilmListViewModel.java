@@ -32,17 +32,4 @@ public class FilmListViewModel extends ViewModel {
             }
         });
     }
-
-    public static class FavoriteViewModel extends ViewModel {
-        MutableLiveData<List<Film>> mutableLiveDataRoom = new MutableLiveData<>();
-
-        public FavoriteViewModel(){
-            App.database.filmDao().getFilmFromRoom().observeForever(new Observer<List<Film>>() {
-                @Override
-                public void onChanged(List<Film> filmList) {
-                    mutableLiveDataRoom.setValue(filmList);
-                }
-            });
-        }
-    }
 }

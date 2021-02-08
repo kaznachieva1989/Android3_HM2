@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="kg.nurzhamal.android3_hm2.ui.MainActivity$FavoriteFragment"
+        android:name="kg.nurzhamal.android3_hm2.ui.FavoriteFragment"
         android:label="favorite_fragment"
         tools:layout="@layout/favorite_fragment" >
         <action
